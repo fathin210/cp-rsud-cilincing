@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model CareerPost {
+  id        Int      @id @default(autoincrement())
+  title     String
+  slug      String   @unique
+  content   String
+  gambar    String?  // ← Menambahkan kolom untuk gambar, bisa opsional
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Berita {
+  id             Int      @id @default(autoincrement())
+  judul          String
+  slug           String   @unique
+  isi            String  @db.Text
+  penulis        String?
+  tanggalPublish DateTime?
+  gambar         String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model JadwalDokter {
+  id    Int    @id @default(autoincrement())
+  layanan      String
+  nama_dokter  String
+  foto_dokter  String?
+  jam_dokter   String
+  hari         String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
