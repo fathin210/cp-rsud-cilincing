@@ -25,7 +25,7 @@ const BannerCarousel = () => {
       {/* Thumbnail */}
       <div
         className={`
-          flex md:flex-col gap-3 
+          hidden md:flex md:flex-col gap-3 
           overflow-x-auto md:overflow-y-auto 
           px-1 md:px-2 md:pr-1
           md:w-1/4 w-full
@@ -77,7 +77,7 @@ const BannerCarousel = () => {
         >
           {slides.map((slide) => (
             <SwiperSlide key={slide.id}>
-              <div className="relative w-full h-[200px] md:h-[500px]">
+              <div className="relative w-full h-[250px] md:h-[500px]">
                 <Image
                   src={slide.src}
                   alt={slide.alt}
