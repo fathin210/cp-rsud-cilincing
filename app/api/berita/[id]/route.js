@@ -13,7 +13,7 @@ export async function GET(_, context) {
   return NextResponse.json(berita);
 }
 
-export async function PUT(req, { params }) {
+export async function PUT(req, context) {
   const { params } = await context;
   const form = await req.formData();
   const id = parseInt(params.id);
@@ -65,7 +65,8 @@ export async function PUT(req, { params }) {
   return NextResponse.json(updated);
 }
 
-export async function DELETE(_, { params }) {
+export async function DELETE(_, context) {
+  const { params } = await context;
   const id = parseInt(params.id);
 
   const existing = await prisma.berita.findUnique({ where: { id } });

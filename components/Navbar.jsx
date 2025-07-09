@@ -21,13 +21,12 @@ import {
 } from "@mui/material";
 import {
   FaGraduationCap,
-  FaBriefcase,
   FaPhoneAlt,
   FaBars,
   FaChevronDown,
 } from "react-icons/fa";
 import { usePathname } from "next/navigation";
-import { Information, MedicalReport, Message } from "./icons";
+import { Hospital, Information, MedicalReport, Message } from "./icons";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -40,6 +39,27 @@ const Navbar = () => {
 
   const navItems = [
     {
+      name: "Profil",
+      icon: () => <Hospital width={24} height={24} />,
+      children: [
+        {
+          name: "Visi & Misi",
+          href: "/profil/visi-misi",
+          description: "Visi dan misi RSUD Cilincing.",
+        },
+        {
+          name: "Penghargaan",
+          href: "/profil/penghargaan",
+          description: "Penghargaan yang sudah diterima RSUD Cilincing"
+        }
+      ],
+    },
+    {
+      name: "PELAYANAN",
+      href: "/pelayanan",
+      icon: () => <Image src="/pelayanan.png" alt="Icon Pelayanan" width={24} height={24} />,
+    },
+    {
       name: "JADWAL DOKTER",
       href: "/jadwal-dokter",
       icon: () => <MedicalReport width={24} height={24} />,
@@ -48,6 +68,16 @@ const Navbar = () => {
       name: "INFORMASI",
       icon: () => <Information width={24} height={24} />,
       children: [
+        // {
+        //   name: "Pelayanan",
+        //   description:
+        //     "Informasi tentang layanan yang tersedia di RSUD Cilincing.",
+        // },
+        {
+          name: "KARIR",
+          href: "/informasi/karir",
+          description: "Informasi lowongan pekerjaan di RSUD Cilincing.",
+        },
         {
           name: "PPID",
           href: "http://ppid.rsudcilincing.id/",
@@ -91,15 +121,18 @@ const Navbar = () => {
       href: "/kanal-aduan",
       icon: () => <Message width={24} height={24} />,
     },
-    {
-      name: "KARIR",
-      icon: () => <FaBriefcase size={24} color="#f9e181" />,
-      children: careerPosts.length > 0 ? careerPosts.map((post) => ({
-        name: post.title,
-        href: `/karir/${post.slug}`,
-        description: post.excerpt,
-      })) : [],
-    },
+    // {
+    //   name: "KARIR",
+    //   icon: () => <FaBriefcase size={24} color="#f9e181" />,
+    //   children:
+    //     careerPosts.length > 0
+    //       ? careerPosts.map((post) => ({
+    //           name: post.title,
+    //           href: `/karir/${post.slug}`,
+    //           description: post.excerpt,
+    //         }))
+    //       : [],
+    // },
   ];
 
   const fetchPostCareer = async () => {

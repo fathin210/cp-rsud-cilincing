@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 const DUMMY_USER = {
   username: "admin",
-  password: "admin123", // Gunakan bcrypt hash di produksi
+  password: "@Admin123", // Gunakan bcrypt hash di produksi
 };
 
 export async function POST(req) {

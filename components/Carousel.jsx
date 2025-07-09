@@ -13,7 +13,6 @@ const slides = [
   { id: 3, src: "/banner/3.webp", alt: "Banner 3" },
   { id: 4, src: "/banner/4.webp", alt: "Banner 4" },
   { id: 5, src: "/banner/5.webp", alt: "Banner 5" },
-  { id: 6, src: "/banner/6.webp", alt: "Banner 6" },
 ];
 
 const BannerCarousel = () => {
@@ -69,7 +68,7 @@ const BannerCarousel = () => {
         <Swiper
           modules={[Navigation, Autoplay]}
           navigation
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 5000 }}
           loop={false}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}

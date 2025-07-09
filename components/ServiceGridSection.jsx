@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import Link from "next/link";
 import JadwalDokterAnim from "@/public/lotties/doctor-schedule.json";
 import InformasiPublikAnim from "@/public/lotties/information.json";
-// import PelayananPasienAnim from "@/public/lotties/patient-service.json";
+import PelayananPasienAnim from "@/public/lotties/patient-service.json";
 import KanalAduanAnim from "@/public/lotties/feedback.json";
 
 const cardData = [
@@ -26,15 +26,15 @@ const cardData = [
     textColor: "text-[#234974]",
     animation: InformasiPublikAnim,
   },
-  // {
-  //   title: "Pelayanan Pasien",
-  //   description: "Panduan pelayanan rawat jalan dan inap",
-  //   href: "/pelayanan-pasien",
-  //   bgColor: "bg-[#fff5db]",
-  //   hoverBg: "hover:bg-[#fbc02d]",
-  //   textColor: "text-[#234974]",
-  //   animation: PelayananPasienAnim,
-  // },
+  {
+    title: "Pelayanan Pasien",
+    description: "Panduan pelayanan rawat jalan dan inap",
+    href: "/pelayanan-pasien",
+    bgColor: "bg-[#fff5db]",
+    hoverBg: "hover:bg-[#fbc02d]",
+    textColor: "text-[#234974]",
+    animation: PelayananPasienAnim,
+  },
   {
     title: "Kanal Aduan",
     description: "Sampaikan keluhan atau masukan Anda",
@@ -48,7 +48,7 @@ const cardData = [
 
 export default function ServiceGridSection() {
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto my-16 px-6">
+    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto my-16 px-6">
       {cardData.map((card, index) => (
         <Link href={card.href} key={index} passHref>
           <div data-aos="fade" data-aos-delay={index * 200} className="w-full h-full">

@@ -7,7 +7,9 @@ const prisma = new PrismaClient();
 
 // GET /api/jadwal-dokter/[id]
 export async function GET(_, context) {
-  const { id } = context.params;
+  const { params } = await context;
+
+  const { id } = params;
 
   const dokter = await prisma.jadwalDokter.findUnique({
     where: { id: parseInt(id) },
@@ -22,7 +24,9 @@ export async function GET(_, context) {
 
 // PUT /api/jadwal-dokter/[id]
 export async function PUT(req, context) {
-  const { id } = context.params;
+  const { params } = await context;
+
+  const { id } = params;
   const dokterId = parseInt(id);
   const form = await req.formData();
 
@@ -83,7 +87,9 @@ export async function PUT(req, context) {
 
 // DELETE /api/jadwal-dokter/[id]
 export async function DELETE(_, context) {
-  const { id } = await context.params;
+  const { params } = await context;
+
+  const { id } = params;
 
   try {
     const existing = await prisma.jadwalDokter.findUnique({

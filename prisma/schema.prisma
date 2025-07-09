@@ -39,3 +39,28 @@ model JadwalDokter {
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
+
+model Dokter {
+  id          Int      @id @default(autoincrement())
+  nama        String
+  layanan     String
+  foto        String?
+  jadwal      Jadwal[]
+}
+
+model Jadwal {
+  id        Int      @id @default(autoincrement())
+  dokterId  Int
+  hari      String   // Senin, Selasa, dst
+  jam       String
+  dokter    Dokter   @relation(fields: [dokterId], references: [id])
+}
+
+model Pelayanan {
+  id        Int      @id @default(autoincrement())
+  title     String
+  slug      String   @unique
+  content   String
+  thumbnail String?
+  createdAt DateTime @default(now())
+}

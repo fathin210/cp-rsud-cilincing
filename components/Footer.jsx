@@ -3,7 +3,7 @@ import { FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-900 text-white pt-12 pb-6 px-6 mt-16">
+    <footer className="bg-blue-900 text-white pt-12 pb-6 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Logo dan Deskripsi */}
         <div>
